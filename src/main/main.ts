@@ -243,14 +243,13 @@ app.whenReady().then(() => {
   });
 
   globalShortcut.register('F8', () => {
-    if (!mainWindow?.isDestroyed()) {
-      if (!mainWindow.isVisible()) {
-        overlayTape = 1;
-        mainWindow.show();
-      }
-      mainWindow.focus();
-      mainWindow.webContents.send('toggle-settings');
+    if (!mainWindow || mainWindow.isDestroyed()) return;
+    if (!mainWindow.isVisible()) {
+      overlayTape = 1;
+      mainWindow.show();
     }
+    mainWindow.focus();
+    mainWindow.webContents.send('toggle-settings');
   });
 });
 
