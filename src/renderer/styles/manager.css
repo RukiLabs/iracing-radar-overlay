@@ -1,0 +1,10 @@
+/* Manager window - normal window, not transparent */
+body.manager {
+  background: #0c0d12;
+  -webkit-app-region: no-drag;
+}
+
+#root.manager-root {
+  min-height: 100vh;
+  min-width: 100%;
+}

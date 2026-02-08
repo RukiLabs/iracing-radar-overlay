@@ -1,0 +1,15 @@
+{
+  "appId": "com.iracing.radar.overlay",
+  "productName": "iRacing Radar Overlay",
+  "directories": {
+    "output": "release"
+  },
+  "files": [
+    "dist/**/*",
+    "assets/**/*"
+  ],
+  "win": {
+    "target": "nsis",
+    "icon": "assets/icon.ico"
+  }
+}
