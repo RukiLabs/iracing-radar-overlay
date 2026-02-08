@@ -2,6 +2,18 @@
 
 A Windows desktop overlay for iRacing that shows a **real-time proximity radar** and **spotter side bars** (left/right), similar to iOverlay or benofficial2 spotter overlay. Built with Electron, React, and TypeScript.
 
+---
+
+## Install in 3 steps (no coding)
+
+1. **Download** — Open the [Releases](https://github.com/RukiLabs/iracing-radar-overlay/releases) page and download the latest **Windows installer** (`.exe`) from the latest release.
+2. **Install** — Run the installer and follow the prompts.
+3. **Use** — Start **“iRacing Radar Overlay”** from the Start menu. Set iRacing to **borderless windowed** so the overlay can sit on top. Use **F9** to show/hide or switch to resize mode; **F8** to open settings.
+
+**Want the very latest (unreleased) build?** Go to the [Actions](https://github.com/RukiLabs/iracing-radar-overlay/actions) tab, click the top (latest) workflow run, scroll to **Artifacts**, and download **iRacing-Radar-Overlay-Windows**.
+
+---
+
 ## Features
 
 - **Proximity radar** — Top-down 2D radar with player at center, nearby cars color-coded by distance (red/amber/gray), track edges, grid rings, danger zone. When a track layout exists for the current circuit (e.g. Charlotte in mock), the radar shows the circuit shape at scale.
@@ -13,16 +25,18 @@ A Windows desktop overlay for iRacing that shows a **real-time proximity radar**
 ## Requirements
 
 - **Windows** (iRacing shared memory is Windows-only)
-- **iRacing** in borderless windowed mode for the overlay to sit on top
-- **Node.js** 18+ (LTS recommended)
+- **iRacing** in borderless windowed mode for the overlay to sit on top  
+- **Node.js** 18+ only if you build from source (not needed if you use the installer above)
 
-## Quick Start
+## Build from source (developers)
 
 ```bash
 npm install
 npm run build
 npm start
 ```
+
+To create a new **release** so others can download the installer from the Releases page: create a version tag and push it (e.g. `git tag v1.0.0` then `git push origin v1.0.0`). GitHub Actions will build the Windows installer and attach it to the release.
 
 For development (hot reload):
 
