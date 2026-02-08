@@ -29,10 +29,17 @@ jobs:
       - name: Build installer
         run: npm run dist
 
+      - name: Prepare installer for upload
+        shell: pwsh
+        run: |
+          $exe = Get-ChildItem -Path release -Filter "*.exe" -File | Select-Object -First 1
+          if (-not $exe) { Write-Error "No .exe found in release/"; exit 1 }
+          Copy-Item $exe.FullName -Destination "release/iRacing-Radar-Overlay-Setup.exe"
+
       - name: Create Release and upload installer
         uses: softprops/action-gh-release@v2
         with:
-          files: release/*.exe
+          files: release/iRacing-Radar-Overlay-Setup.exe
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
